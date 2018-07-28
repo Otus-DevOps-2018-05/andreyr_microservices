@@ -28,6 +28,8 @@ docker-host   -        google   Running   tcp://35.228.27.135:2376           v18
 - `docker build -t reddit:latest .`
 - `docker tag reddit:latest positive/otus-reddit:1.0`
 - `docker push positive/otus-reddit:1.0`
+- (*) Created packer template to generate docker-host image via ansible playbooks
+- (*) Created terraform configuration to start docker-host-* instances based on docker-host image
 
 ## How to run project
 

@@ -1,0 +1,6 @@
+variables.json
+*.tfstate*
+*.tfvars
+.terraform/
+*.retry
+docker-*.json

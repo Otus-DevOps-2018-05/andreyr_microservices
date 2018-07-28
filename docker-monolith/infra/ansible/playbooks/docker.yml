@@ -1,0 +1,24 @@
+---
+- name: Install Docker App
+  hosts: tag_docker-host
+  become: true
+  tasks:
+  - name: Add key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+    register: add_repository_key
+  - name: Add Docker repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+      state: present
+  - name: Install Docker
+    apt:
+      name: docker-ce
+      state: present
+  - name: Run Docker at start
+    systemd:
+      enabled: True
+      state: restarted
+      daemon_reload: yes
+      name: docker.service

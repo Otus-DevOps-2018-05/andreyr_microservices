@@ -1,0 +1,11 @@
+---
+- name: Deploy OTUS Reddit
+  hosts: tag_docker-host
+  become: true
+  tasks:
+  - name: Deploy positive/otus-reddit
+    docker_container:
+      name: reddit
+      image: positive/otus-reddit:1.0
+      ports:
+        - "9292:9292"
