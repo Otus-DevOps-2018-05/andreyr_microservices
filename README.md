@@ -1,6 +1,7 @@
 # Table of content
 - [Homework 11: docker-1](#homework-11-docker-1)
 - [Homework 12: docker-2](#homework-12-docker-2)
+- [Homework 13: docker-3](#homework-13-docker-3)
 
 # Homework 11: docker-1
 ## What has been done
@@ -34,3 +35,38 @@ docker-host   -        google   Running   tcp://35.228.27.135:2376           v18
 ## How to run project
 
 ## How to check
+
+
+# Homework 13: docker-3
+## What has been done
+- Created microservices images
+~~~~
+docker pull mongo:latest
+docker build -t positive/post:1.0 ./post-py
+docker build -t positive/comment:1.0 ./comment
+docker build -t positive/ui:1.0 ./ui
+~~~~
+- Last command was using cache because `comment` image contains same operations
+- Created network and start containers
+~~~~
+docker network create reddit
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db mongo:latest
+docker run -d --network=reddit --network-alias=post positive/post:1.0
+docker run -d --network=reddit --network-alias=comment positive/comment:1.0
+docker run -d --network=reddit -p 9292:9292 positive/ui:1.0
+~~~~
+- (\*) Created Dockerfile2.0 for ui and comment service
+~~~~
+positive/comment    2.0                 1a46318b8284        6 seconds ago       52.9MB
+positive/ui         3.6                 cbb0147d5ee5        14 minutes ago      60.9MB
+~~~~
+- (\*) that's minimal size I could get after countless tries
+- `docker volume create reddit_db`
+~~~~
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db -v reddit_db:/data/db mongo:latest
+docker run -d --network=reddit --network-alias=post positive/post:1.0
+docker run -d --network=reddit --network-alias=comment positive/comment:2.0
+docker run -d --network=reddit -p 9292:9292 positive/ui:3.6
+~~~~
+- `docker kill $(docker ps -q)` and then restart
+- Old post is still in place
