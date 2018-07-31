@@ -55,7 +55,7 @@ docker run -d --network=reddit --network-alias=post positive/post:1.0
 docker run -d --network=reddit --network-alias=comment positive/comment:1.0
 docker run -d --network=reddit -p 9292:9292 positive/ui:1.0
 ~~~~
-- (\*) Created Dockerfile2.0 for ui and comment service
+- (\*) Created Dockerfile for ui and comment service based on Alpine Linux
 ~~~~
 positive/comment    2.0                 1a46318b8284        6 seconds ago       52.9MB
 positive/ui         3.6                 cbb0147d5ee5        14 minutes ago      60.9MB
