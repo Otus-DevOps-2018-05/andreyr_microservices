@@ -57,7 +57,7 @@ docker run -d --network=reddit -p 9292:9292 positive/ui:1.0
 ~~~~
 - (\*) Created Dockerfile for ui and comment service based on Alpine Linux
 ~~~~
-positive/post       2.0                 3ff262d877c9        12 seconds ago      99.4MB
+positive/post       3.0                 465338aee855        8 hours ago         38MB
 positive/comment    2.0                 1a46318b8284        8 hours ago         52.9MB
 positive/ui         3.6                 cbb0147d5ee5        8 hours ago         60.9MB
 ~~~~
@@ -65,7 +65,7 @@ positive/ui         3.6                 cbb0147d5ee5        8 hours ago         
 - `docker volume create reddit_db`
 ~~~~
 docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db -v reddit_db:/data/db mongo:latest
-docker run -d --network=reddit --network-alias=post positive/post:2.0
+docker run -d --network=reddit --network-alias=post positive/post:3.0
 docker run -d --network=reddit --network-alias=comment positive/comment:2.0
 docker run -d --network=reddit -p 9292:9292 positive/ui:3.6
 ~~~~
