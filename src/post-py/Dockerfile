@@ -17,7 +17,7 @@ RUN apk add --update --no-cache python3 \
     && rm -rf /tmp/pip-build* ~/.cache/pip* \
     && rm -rf /var/cache/apk/*
 
-ENV POST_DATABASE_HOST post_db1
+ENV POST_DATABASE_HOST post_db
 ENV POST_DATABASE posts
 
 ENTRYPOINT ["python3", "post_app.py"]

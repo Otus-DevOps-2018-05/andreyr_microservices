@@ -14,7 +14,7 @@ RUN apk update \
 
 COPY . $APP_HOME/
 
-ENV COMMENT_DATABASE_HOST comment_db1
+ENV COMMENT_DATABASE_HOST comment_db
 ENV COMMENT_DATABASE comments
 
 CMD ["puma"]
