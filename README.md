@@ -110,3 +110,5 @@ docker network connect front_net comment
 - Created terraform module for deploying docker-host
 - Created ansible playbooks for creating necessary directories, deploying docker-compose.yml with correct external IP and running docker-compose
 - Setup Gitlab CI
+- (\*) Created `runner.yml` to start runner container and register runner in gitlab
+- (\*) Integration with slack https://devops-team-otus.slack.com/messages/CB6D75QGP/
