@@ -3,6 +3,7 @@
 - [Homework 12: docker-2](#homework-12-docker-2)
 - [Homework 13: docker-3](#homework-13-docker-3)
 - [Homework 14: docker-4](#homework-14-docker-4)
+- [Homework 15: gitlab-ci-1](#homework-15-gitlab-ci-1)
 
 # Homework 11: docker-1
 ## What has been done
@@ -103,3 +104,8 @@ docker network connect front_net comment
 - Created .env file with variables
 - Docker compose get prefix for project name from the project directory (src in our case). One can change it by using -p / --project-name option for each command or setting the COMPOSE_PROJECT_NAME environment variable.
 - (\*) Created `docker-compose.override.yml` with mapping volumes into containers and running ruby app in debug mode
+
+# Homework 15: gitlab-ci-1
+## What has been done
+- Created terraform module for deploying docker-host
+- Created ansible playbook `docker-compose.yml` for creating necessary directories, deploying docker-compose.yml with correct external IP and running docker-compose

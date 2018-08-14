@@ -1,0 +1,40 @@
+---
+- name: Install Docker App
+  hosts: docker-host
+  become: true
+  tasks:
+
+  - name: Add key
+    apt_key:
+      url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+    register: add_repository_key
+
+  - name: Add Docker repository
+    apt_repository:
+      repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable
+      state: present
+
+  - name: Install Docker and dependencies
+    apt:
+      name: "{{ item }}"
+      update_cache: yes
+    with_items:
+      - docker-ce
+      - python-pip
+      - docker-compose
+
+  - name: Run Docker at start
+    systemd:
+      enabled: True
+      state: restarted
+      daemon_reload: yes
+      name: docker.service
+
+  - name: pip install docker-compose and docker
+    pip:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - ['docker-compose', 'docker']
+
