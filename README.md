@@ -108,4 +108,5 @@ docker network connect front_net comment
 # Homework 15: gitlab-ci-1
 ## What has been done
 - Created terraform module for deploying docker-host
-- Created ansible playbook `docker-compose.yml` for creating necessary directories, deploying docker-compose.yml with correct external IP and running docker-compose
+- Created ansible playbooks for creating necessary directories, deploying docker-compose.yml with correct external IP and running docker-compose
+- Setup Gitlab CI
