@@ -1,0 +1,7 @@
+REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
+andreyr/ubuntu-tmp-file   latest              c3eddc2c2d37        2 minutes ago       115MB
+ubuntu                    16.04               e13f3d529b1a        6 days ago          115MB
+hello-world               latest              2cb0d9787c4d        12 days ago         1.85kB
+
+Контейнер и образ отличаются примерно как установленная ОС и ISO-образ. У контейнера есть процесс, есть состояние, есть лимиты, настройки сети и прочее.
+Ну и главное отличие наверно в файловой системе: в контейнере есть доступный на запись слой ФС, в образе нет - все слои read-only.
