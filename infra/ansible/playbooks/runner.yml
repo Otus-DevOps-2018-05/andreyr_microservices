@@ -4,7 +4,7 @@
   become: true
   tasks:
     - name: runner container
-      docker:
+      docker_container:
         name: gitlab-runner
         restart_policy: always
         image: gitlab/gitlab-runner:latest
@@ -22,8 +22,8 @@
     - name: run command in container
       delegate_to: gitlab-runner
       raw: gitlab-runner register --non-interactive \
-        --url 'http://{{ public_ip.ansible_facts.ipify_public_ip }}' \
-        --registration-token 'xapJs1F63ndVmCfmpzbU' \
+        --url 'http://35.228.246.205' \
+        --registration-token 'GcHnbYH5_k4xQ7FDmx9f' \
         --description 'my-runner' \
         --tag-list 'linux,xenial,ubuntu,docker' \
         --executor 'docker' \
