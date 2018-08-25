@@ -43,8 +43,6 @@ branch review:
   stage: review
   script:
     - echo "Deploy to $CI_ENVIRONMENT_SLUG"
-    - cat /etc/*release
-    - gcloud compute instances create $CI_COMMIT_REF_NAME --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small
 
   environment:
     name: branch/$CI_COMMIT_REF_NAME
