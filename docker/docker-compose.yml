@@ -66,6 +66,7 @@ services:
     container_name: node-exporter
 
   mongodb-exporter:
+    env_file: .env
     image: eses/mongodb_exporter:latest
     environment:
       - MONGODB_URI=${MONGODB_URI}
