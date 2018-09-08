@@ -129,3 +129,15 @@ docker network connect front_net comment
 - (\*) Rebuilt `cloudprober/cloudprober` image to monitor ui,post,comment microservices
 - (\*) Prepared `Makefile` for building and pushing all 5 custom docker images
 - Docker Hub - https://hub.docker.com/u/positive/
+
+# Homework 18: monitoring-2
+## What has been done
+- Docker containers monitoring
+- Metrics visualization
+- Gathering application and business metrics
+- Alerting setup and check
+- Docker Hub - https://hub.docker.com/u/positive/
+- (\*) Fixed Makefile for alertmanager
+- (\*) Added docker experimental monitoring to Prometheus, Grafana dashboard - `monitoring/grafana/dashboards/docker-engine-metrics.json`
+- (\*) Added APIHighRequestLatency alert with quantile="0.99"
+- (\*) Setup email notifications in alertmanager
