@@ -2,6 +2,7 @@
 - [Homework 11: docker-1](#homework-11-docker-1)
 - [Homework 12: docker-2](#homework-12-docker-2)
 - [Homework 13: docker-3](#homework-13-docker-3)
+- [Homework 14: docker-4](#homework-14-docker-4)
 
 # Homework 11: docker-1
 ## What has been done
@@ -71,3 +72,34 @@ docker run -d --network=reddit -p 9292:9292 positive/ui:3.6
 ~~~~
 - `docker kill $(docker ps -q)` and then restart
 - Old post is still in place
+
+# Homework 14: docker-4
+## What has been done
+- Tested none and host networks
+~~~~
+docker run --network none --rm -d --name net_test joffotron/docker-net-tools -c "sleep 100"
+docker-machine ssh docker-host sudo ip netns
+docker run --network host --rm -d --name net_test joffotron/docker-net-tools -c "sleep 100"
+docker-machine ssh docker-host sudo ip netns
+~~~~
+- none network has default and 217b74a5b009 namespace, host has only default
+~~~~
+docker run -d --network=reddit --network-alias=post_db --network-alias=comment_db -v reddit_db:/data/db mongo:latest
+docker run -d --network=reddit --network-alias=post positive/post:3.1
+docker run -d --network=reddit --network-alias=comment positive/comment:2.1
+docker run -d --network=reddit -p 9292:9292 positive/ui:3.6
+~~~~
+~~~~
+docker network create back_net --subnet=10.0.2.0/24
+docker network create front_net --subnet=10.0.1.0/24
+docker run -d --network=back_net --network-alias=post_db --network-alias=comment_db --name mongo_db -v reddit_db:/data/db mongo:latest
+docker run -d --network=back_net --network-alias=post --name post positive/post:3.1
+docker run -d --network=back_net --network-alias=comment --name comment positive/comment:2.1
+docker run -d --network=front_net -p 9292:9292 --name ui positive/ui:3.6
+docker network connect front_net post
+docker network connect front_net comment
+~~~~
+- Split docker-compose.yml containers into two subnets
+- Created .env file with variables
+- Docker compose get prefix for project name from the project directory (src in our case). One can change it by using -p / --project-name option for each command or setting the COMPOSE_PROJECT_NAME environment variable.
+- (\*) Created `docker-compose.override.yml` with mapping volumes into containers and running ruby app in debug mode
