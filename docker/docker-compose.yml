@@ -19,14 +19,32 @@ services:
     networks:
       - front_net
     container_name: ui
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.ui
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
   post:
     env_file: .env
     image: ${USERNAME}/post:${POST_IMAGE_VERSION}
+    depends_on:
+      - post_db
+    ports:
+      - "5000:5000"
     networks:
       - back_net
       - front_net
     container_name: post
+    logging:
+      driver: "fluentd"
+      options:
+        fluentd-address: localhost:24224
+        tag: service.post
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
   comment:
     env_file: .env
@@ -35,16 +53,17 @@ services:
       - back_net
       - front_net
     container_name: comment
+    environment:
+      - ZIPKIN_ENABLED=${ZIPKIN_ENABLED}
 
 volumes:
   post_db:
 
+
 networks:
   back_net:
-    ipam:
-      config:
-        - subnet: 10.0.2.0/24
+    external:
+      name: docker_back_net
   front_net:
-    ipam:
-      config:
-        - subnet: 10.0.1.0/24
+    external:
+      name: docker_front_net
