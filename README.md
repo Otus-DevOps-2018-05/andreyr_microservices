@@ -9,6 +9,7 @@
 - [Homework 18: monitoring-2](#homework-18-monitoring-2)
 - [Homework 19: logging-1](#homework-19-logging-1)
 - [Homework 20: kubernetes-1](#homework-20-kubernetes-1)
+- [Homework 21: kubernetes-2](#homework-21-kubernetes-2)
 
 # Homework 11: docker-1
 ## What has been done
@@ -160,3 +161,10 @@ docker network connect front_net comment
 - Created `kubernetes/reddit` deployment yml file
 - Performed all tasks from `Kubernetes The Hard way`, deleted cluster
 
+# Homework 21: kubernetes-2
+## What has been done
+- Deployed reddit app to k8s in minikube
+- Prepared GKE cluster
+- Deployed reddit app in GKE
+- (\*) Setup GKE cluster via Terraform
+- (\*) Created YAML manifest for dashboard
