@@ -17,7 +17,7 @@ variable "public_key_path" {
 }
 
 variable "machine_type" {
-  default = "g1-small"
+  default = "n1-standard-2"
 }
 
 variable "disk_size_gb" {
