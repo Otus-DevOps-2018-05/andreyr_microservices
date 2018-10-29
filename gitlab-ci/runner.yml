@@ -1,0 +1,30 @@
+---
+- name: Setup gitlab runner container
+  hosts: docker-host
+  become: true
+  tasks:
+    - name: runner container
+      docker:
+        name: gitlab-runner
+        restart_policy: always
+        image: gitlab/gitlab-runner:latest
+        state: started
+        volumes:
+          - /srv/gitlab-runner/config:/etc/gitlab-runner
+          - /var/run/docker.sock:/var/run/docker.sock
+
+    - name: add container to inventory
+      add_host:
+        name: gitlab-runner
+        ansible_connection: docker
+      changed_when: false
+
+    - name: run command in container
+      delegate_to: gitlab-runner
+      raw: gitlab-runner register --non-interactive \
+        --url 'http://{{ public_ip.ansible_facts.ipify_public_ip }}' \
+        --registration-token 'xapJs1F63ndVmCfmpzbU' \
+        --description 'my-runner' \
+        --tag-list 'linux,xenial,ubuntu,docker' \
+        --executor 'docker' \
+        --docker-image 'alpine:latest'

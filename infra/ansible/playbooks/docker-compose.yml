@@ -1,0 +1,25 @@
+---
+- name: Setup docker-compose files
+  hosts: docker-host
+  become: true
+  tasks:
+    - name: Create dirs
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - ["/srv/gitlab/config", "/srv/gitlab/data", "/srv/gitlab/logs"]
+
+    - name: Get public IP
+      ipify_facts:
+      register: public_ip
+
+    - name: Upload docker-compose.yml
+      template:
+        src: files/docker-compose.yml.j2
+        dest: /srv/gitlab/docker-compose.yml
+
+    - name: Start docker-compose
+      docker_service:
+        project_src: /srv/gitlab
+        state: present
