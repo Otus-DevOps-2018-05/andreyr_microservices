@@ -4,6 +4,7 @@
 - [Homework 13: docker-3](#homework-13-docker-3)
 - [Homework 14: docker-4](#homework-14-docker-4)
 - [Homework 15: gitlab-ci-1](#homework-15-gitlab-ci-1)
+- [Homework 16: gitlab-ci-2](#homework-16-gitlab-ci-2)
 
 # Homework 11: docker-1
 ## What has been done
@@ -112,3 +113,9 @@ docker network connect front_net comment
 - Setup Gitlab CI
 - (\*) Created `runner.yml` to start runner container and register runner in gitlab
 - (\*) Integration with slack https://devops-team-otus.slack.com/messages/CB6D75QGP/
+
+# Homework 16: gitlab-ci-2
+## What has been done
+- Extended current Gitlab pipeline
+- Define environments
+- (\*) This task looks quite mad to me. As we have have `executor = "docker"` all runner tasks runs in some newly created container. So we had to setup gcloud and all dependencies every time. I just put gcloud task to git update hook in gitlab server. It's not what you've asked but it looks more convinient to me.
