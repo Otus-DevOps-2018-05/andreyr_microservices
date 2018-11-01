@@ -5,3 +5,5 @@ variables.json
 .terraform/
 *.retry
 docker-*.json
+build_info.txt
+*.pyc

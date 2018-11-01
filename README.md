@@ -5,6 +5,7 @@
 - [Homework 14: docker-4](#homework-14-docker-4)
 - [Homework 15: gitlab-ci-1](#homework-15-gitlab-ci-1)
 - [Homework 16: gitlab-ci-2](#homework-16-gitlab-ci-2)
+- [Homework 17: monitoring-1](#homework-17-monitoring-1)
 
 # Homework 11: docker-1
 ## What has been done
@@ -119,3 +120,12 @@ docker network connect front_net comment
 - Extended current Gitlab pipeline
 - Define environments
 - (\*) This task looks quite mad to me. As we have have `executor = "docker"` all runner tasks runs in some newly created container. So we had to setup gcloud and all dependencies every time. I just put gcloud task to git update hook in gitlab server. It's not what you've asked but it looks more convinient to me.
+
+# Homework 17: monitoring-1
+## What has been done
+- Prometheus: running, setup
+- Monitoring microservices ui,post,comment
+- (\*) Imported `eses/mongodb_exporter` image for monitoring mongodb
+- (\*) Rebuilt `cloudprober/cloudprober` image to monitor ui,post,comment microservices
+- (\*) Prepared `Makefile` for building and pushing all 5 custom docker images
+- Docker Hub - https://hub.docker.com/u/positive/
