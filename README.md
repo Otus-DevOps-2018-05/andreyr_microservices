@@ -12,6 +12,7 @@
 - [Homework 21: kubernetes-2](#homework-21-kubernetes-2)
 - [Homework 22: kubernetes-3](#homework-22-kubernetes-3)
 - [Homework 23: kubernetes-4](#homework-23-kubernetes-4)
+- [Homework 24: kubernetes-5](#homework-24-kubernetes-5)
 
 # Homework 11: docker-1
 ## What has been done
@@ -183,3 +184,8 @@ docker network connect front_net comment
 - Setup Gitlab in kubernetes
 - Configure Gitlab CI/CD in kubernetes
 
+# Homework 23: kubernetes-5
+## What has been done
+- Install Prometheus to kubernetes
+- Setup Grafana to show Prometheus metrics
+- Install EFK stack to kubernetes
