@@ -6,6 +6,8 @@
 - [Homework 15: gitlab-ci-1](#homework-15-gitlab-ci-1)
 - [Homework 16: gitlab-ci-2](#homework-16-gitlab-ci-2)
 - [Homework 17: monitoring-1](#homework-17-monitoring-1)
+- [Homework 18: monitoring-2](#homework-18-monitoring-2)
+- [Homework 19: logging-1](#homework-19-logging-1)
 
 # Homework 11: docker-1
 ## What has been done
@@ -141,3 +143,13 @@ docker network connect front_net comment
 - (\*) Added docker experimental monitoring to Prometheus, Grafana dashboard - `monitoring/grafana/dashboards/docker-engine-metrics.json`
 - (\*) Added APIHighRequestLatency alert with quantile="0.99"
 - (\*) Setup email notifications in alertmanager
+
+# Homework 19: logging-1
+## What has been done
+- Gather unstructured logs (Fluentd)
+- Logs visualization (Kibana)
+- Gather structured logs
+- Tracing (Zipkin). Configure services networks as external
+- (\*) New grok configuration for parsing service=ui messages
+- (\*) Tracing. First issue - missing POST_DATABASE_HOST and POST_DATABASE variables in post-py Dockerfile
+- (\*) Tracing. Second issue - time.sleep(3) in file ./bugged_code/post-py/post_app.py
