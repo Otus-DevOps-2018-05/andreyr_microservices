@@ -8,6 +8,7 @@
 - [Homework 17: monitoring-1](#homework-17-monitoring-1)
 - [Homework 18: monitoring-2](#homework-18-monitoring-2)
 - [Homework 19: logging-1](#homework-19-logging-1)
+- [Homework 20: kubernetes-1](#homework-20-kubernetes-1)
 
 # Homework 11: docker-1
 ## What has been done
@@ -153,3 +154,9 @@ docker network connect front_net comment
 - (\*) New grok configuration for parsing service=ui messages
 - (\*) Tracing. First issue - missing POST_DATABASE_HOST and POST_DATABASE variables in post-py Dockerfile
 - (\*) Tracing. Second issue - time.sleep(3) in file ./bugged_code/post-py/post_app.py
+
+# Homework 20: kubernetes-1
+## What has been done
+- Created `kubernetes/reddit` deployment yml file
+- Performed all tasks from `Kubernetes The Hard way`, deleted cluster
+
