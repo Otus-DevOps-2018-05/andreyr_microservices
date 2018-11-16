@@ -11,6 +11,7 @@
 - [Homework 20: kubernetes-1](#homework-20-kubernetes-1)
 - [Homework 21: kubernetes-2](#homework-21-kubernetes-2)
 - [Homework 22: kubernetes-3](#homework-22-kubernetes-3)
+- [Homework 23: kubernetes-4](#homework-23-kubernetes-4)
 
 # Homework 11: docker-1
 ## What has been done
@@ -175,3 +176,10 @@ docker network connect front_net comment
 - Study various Kubernetes network and storage services
 - (\*) Created `ui-secret.yml` with tls key and cert
 - Add `post` podSelector to `mongo-network-policy.yml`
+
+# Homework 23: kubernetes-4
+## What has been done
+- Study cluster deployment via Helm
+- Setup Gitlab in kubernetes
+- Configure Gitlab CI/CD in kubernetes
+
