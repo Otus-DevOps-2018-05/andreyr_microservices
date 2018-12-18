@@ -7,6 +7,7 @@ resource "google_container_cluster" "primary" {
   name               = "gke-cluster"
   zone               = "${var.zone}"
   initial_node_count = 3
+  enable_legacy_abac = true
   master_auth {
     username = ""
     password = ""
